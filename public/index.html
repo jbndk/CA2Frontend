@@ -6,24 +6,97 @@
   </head>
 
   <body>
-    <div class="main">
-     
-      <div id="1">
-        <table>
-          <thead><tr><th>ID</th><th>NAME</th><th>AGE</th><th>GENDER</th><th>EMAIL</th></tr></thead>
-          <tbody id="tb"></tbody>
-        </table>
+
+    <div class="accordion" id="accordionExample">
+
+      <div class="card">
+        <div class="card-header">
+          <h5 class="mb-0">
+              Find person by phone
+          </h5>
+        </div>
+        <div class="card-body">
+            <form>
+              <div class="form-group">
+                <label for="phoneInput">Please enter a phone number:</label>
+                <input type="phone" class="form-control" id="phoneInputField" placeholder="Phone number here">
+                <small id="emailHelp" class="form-text text-muted">Only numbers are allowed - please do not include country code.</small>
+              </div>
+        
+              <div id="getPersonByPhone">
+                <table class="table">
+                  <thead><tr><th>First name</th><th>Last name</th><th>Street</th><th>Zip code</th></tr></thead>
+                  <tbody id="phoneTable"></tbody>
+                </table>
+              </div>
+            </div>          
+          </div>
+        </div>
       </div>
-      <div id="2">
-      <input type="text" id="inpId"><button id="btnId">Get user by id</button><div id="divId"></div>
+
+
+      <div class="card">
+        <div class="card-header">
+          <h5 class="mb-0">
+              Find persons with a hobby
+          </h5>
+        </div>
+          <div class="card-body">
+              Method here
+        </div>
       </div>
-      <div id="3">
-       
+
+
+      <div class="card">
+        <div class="card-header">
+          <h5 class="mb-0">
+              Add a person
+          </h5>
+        </div>
+          <div class="card-body">
+              Method here
+          </div>
       </div>
-      <!-- <div id="4">
-        Solution exercise 4 here
-      </div> -->
     </div>
+
+
+    <div class="card">
+      <div class="card-header">
+        <h5 class="mb-0">
+            Edit a person
+        </h5>
+      </div>
+        <div class="card-body">
+            Method here
+        </div>
+    </div>
+  </div>
+
+
+  <div class="card">
+    <div class="card-header">
+      <h5 class="mb-0">
+          REST API description
+      </h5>
+    </div>
+      <div class="card-body">
+        <h6>Request Body and Response Formats</h6><br>(1) Person format<br>{<br>"id": int,<br>"email": String,<br>"fName": String,<br>"lName":String,<br>"street": String,<br>"additInfo": String,<br>"zip": int<br>"hobbyName": String,<br>"phNumber": String,<br>"descrip": String<br>}<br><br>(2) Person format<br>{<br>"fName": String,<br>"lName": String,<br>"street": String,<br>"zip": int<br>}
+        <br><br><h6>Errors</h6><ul><li>(e1):{ status : 404, "msg": "No content found for this request" }</li><li>(e2) :{ status : 400, "msg": "Field ‘xxx’ is required" } (for example, no name provided)</li></ul>      </div>
+  </div>
+</div>
+
+
+<div class="card">
+  <div class="card-header">
+    <h5 class="mb-0">
+        SCRUM overview
+    </h5>
+  </div>
+    <div class="card-body">
+      <img src="scrum.png" width="1000" height="600">
+    </div>
+</div>
+
     <script src="bundle.js"></script>
   </body>
 </html>

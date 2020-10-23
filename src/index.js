@@ -2,37 +2,44 @@ import 'bootstrap/dist/css/bootstrap.css';
 import regeneratorRuntime from "regenerator-runtime";
 
 const tb = document.getElementById('tb');
-const url = 'http://localhost:3333/api/users';
-fetch(url)
-.then(res=>fetchWithErrorCheck(res))
-.then((data)=>{
-    const trs = data.map((user)=>{
-        return `<tr><td>${user.id}</td><td>${user.name}</td><td>${user.age}</td><td>${user.gender}</td><td>${user.email}</td></tr>`;
-    });
-    const trStr = trs.join('');
-    tb.innerHTML = trStr;
-});
+const url = 'https://denkoldehane.dk/CA2/api/person/phone/';
 
-document.getElementById('btnId').onclick = () => {
-    const id = document.getElementById('inpId').value;
-    fetch(`${url}/${id}`)
-    .then(res=>fetchWithErrorCheck(res))
-    .then(user=>{
-        const userStr = `${user.name} has email: ${user.email}. ${(user.gender==='female')?'She':'He'} is ${user.age} years old`;
-        document.getElementById('divId').innerHTML = userStr;
-    });
+document.getElementById('phoneInputField').addEventListener("input", getPersonByPhone);
+
+function getPersonByPhone() {
+
+let phoneNumber = document.getElementById('phoneInputField').value;
+let finalUrl = url + phoneNumber;
+
+const options = makeOptions("GET");
+
+fetch(finalUrl, options)
+.then(res=>fetchWithErrorCheck(res))
+.then(data => {
+    console.log(data);
+    showPerson(data);
+});
+}
+
+function showPerson(data) {
+    var table = document.getElementById("phoneTable");
+    table.innerHTML = "";
+    var tr = "";
+    tr = '<tr>' + '<td>' + data.fName + '</td>' + '<td>' + data.lName + '</td>' + '<td>' + data.street + '</td>' + '<td>' + data.zip + '</td>' + '</tr>';
+    table.innerHTML = tr;
+    console.log(tr);
 };
 
-
-const getUser = async () => {
-    const id = document.getElementById('inpId').value;
-    const userResponse = await fetch(`${url}/${id}`);
-    const userData = await fetchWithErrorCheck(userResponse);
-    const userStr = `${userData.name} has email: ${userData.email}. ${(userData.gender==='female')?'She':'He'} is ${userData.age} years old`;
-    document.getElementById('divId').innerHTML = userStr;
-}
-document.getElementById('btnId').onclick = getUser;
-
+function makeOptions(method) {
+    var opts = {
+        method: method,
+        headers: {
+            "Content-type": "application/json",
+            "Accept": "application/json"
+        }
+    }
+    return opts;
+};
 
 function fetchWithErrorCheck(res){
     if(!res.ok){
