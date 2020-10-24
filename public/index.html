@@ -41,9 +41,21 @@
               Find persons with a hobby
           </h5>
         </div>
-          <div class="card-body">
-              Method here
-        </div>
+        <div class="card-body">
+          <form>
+            <div class="form-group">
+              <label for="hobbyInput">Please enter a hobby:</label>
+              <input type="text" class="form-control" id="hobbyInputField" placeholder="Hobby here">
+              
+            </div>
+      
+            <div id="getPersonsByHobby">
+              <table class="table">
+                <thead><tr><th>First name</th><th>Last name</th><th>Street</th><th>Zip code</th></tr></thead>
+                <tbody id="hobbyTable"></tbody>
+              </table>
+            </div>
+          </div>
       </div>
 
 

@@ -30,6 +30,39 @@ function showPerson(data) {
     console.log(tr);
 };
 
+
+const hobbyUrl = 'https://denkoldehane.dk/CA2/api/person/hobby/';
+
+document.getElementById('hobbyInputField').addEventListener("input", getPersonsByHobby);
+
+function getPersonsByHobby() {
+
+let hobby = document.getElementById('hobbyInputField').value;
+let finalHobbyUrl = hobbyUrl + hobby;
+
+const options = makeOptions("GET");
+
+fetch(finalHobbyUrl, options)
+.then(res=>fetchWithErrorCheck(res))
+.then(data => {
+    console.log(data);
+    showPersons(data);
+});
+}
+
+function showPersons(data) {
+    var table = document.getElementById("hobbyTable");
+    table.innerHTML = "";
+    var tr = "";
+data.forEach(x => {
+    tr = '<tr>' + '<td>' + x.fName + '</td>' + '<td>' + x.lName + '</td>' + '<td>' + x.street + '</td>' + '<td>' + x.zip + '</td>' + '</tr>';
+});
+    table.innerHTML = tr;
+    console.log(tr);
+};
+
+
+
 function makeOptions(method) {
     var opts = {
         method: method,
