@@ -16,12 +16,14 @@
           </h5>
         </div>
         <div class="card-body">
-            <form>
+            <div class="col-3">
+          <form>
               <div class="form-group">
                 <label for="phoneInput">Please enter a phone number:</label>
-                <input type="phone" class="form-control" id="phoneInputField" placeholder="Phone number here">
-                <small id="emailHelp" class="form-text text-muted">Only numbers are allowed - please do not include country code.</small>
+                <input type="text" class="form-control" id="phoneInputField" placeholder="Phone number here">
+                <small id="phoneHelp" class="form-text text-muted">Only numbers are allowed - please do not include country code.</small>
               </div>
+            </div>
         
               <div id="getPersonByPhone">
                 <table class="table">
@@ -42,11 +44,12 @@
           </h5>
         </div>
         <div class="card-body">
+          <div class="col-3">
           <form>
             <div class="form-group">
               <label for="hobbyInput">Please enter a hobby:</label>
               <input type="text" class="form-control" id="hobbyInputField" placeholder="Hobby here">
-              
+            </div>
             </div>
       
             <div id="getPersonsByHobby">
@@ -92,9 +95,12 @@
       </h5>
     </div>
       <div class="card-body">
+        <div class="col-8">
+        <table class="table"> <tr> <th>Method</th> <th>URL</th> <th>Request Body (JSON)</th> <th>Response (JSON)</th> <th>Error (e)</th> </tr> <tr> <td>GET</td> <td>/api/person/hobby/{hobbyName}</td> <td></td> <td>[person, person, ...] (2)</td> <td>(e1)</td> </tr> <tr> <td>GET</td> <td>api/person/phone/{phoneNumber}</td> <td></td> <td>person (2)</td> <td>(e1)</td> </tr> <tr> <td>POST</td> <td>/api/person</td> <td>(1) without id</td> <td></td> <td>(e2)</td> </tr> <tr> <td>PUT</td> <td>/api/person</td> <td>person (1)</td> <td></td> <td>(e1)</td> </tr> </table><br>
         <h6>Request Body and Response Formats</h6><br>(1) Person format<br>{<br>"id": int,<br>"email": String,<br>"fName": String,<br>"lName":String,<br>"street": String,<br>"additInfo": String,<br>"zip": int<br>"hobbyName": String,<br>"phNumber": String,<br>"descrip": String<br>}<br><br>(2) Person format<br>{<br>"fName": String,<br>"lName": String,<br>"street": String,<br>"zip": int<br>}
         <br><br><h6>Errors</h6><ul><li>(e1):{ status : 404, "msg": "No content found for this request" }</li><li>(e2) :{ status : 400, "msg": "Field ‘xxx’ is required" } (for example, no name provided)</li></ul>      </div>
-  </div>
+        </div>> 
+      </div>
 </div>
 
 

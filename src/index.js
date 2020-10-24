@@ -1,35 +1,32 @@
 import 'bootstrap/dist/css/bootstrap.css';
-import regeneratorRuntime from "regenerator-runtime";
 
-const tb = document.getElementById('tb');
-const url = 'https://denkoldehane.dk/CA2/api/person/phone/';
+const phoneUrl = 'https://denkoldehane.dk/CA2/api/person/phone/';
 
 document.getElementById('phoneInputField').addEventListener("input", getPersonByPhone);
 
 function getPersonByPhone() {
 
+document.getElementById("phoneTable").innerHTML = "";
+
 let phoneNumber = document.getElementById('phoneInputField').value;
-let finalUrl = url + phoneNumber;
+let finalPhoneUrl = phoneUrl + phoneNumber;
 
 const options = makeOptions("GET");
 
-fetch(finalUrl, options)
+fetch(finalPhoneUrl, options)
 .then(res=>fetchWithErrorCheck(res))
 .then(data => {
-    console.log(data);
-    showPerson(data);
+    showPersonByPhone(data);
 });
 }
 
-function showPerson(data) {
+function showPersonByPhone(data) {
     var table = document.getElementById("phoneTable");
     table.innerHTML = "";
     var tr = "";
     tr = '<tr>' + '<td>' + data.fName + '</td>' + '<td>' + data.lName + '</td>' + '<td>' + data.street + '</td>' + '<td>' + data.zip + '</td>' + '</tr>';
     table.innerHTML = tr;
-    console.log(tr);
 };
-
 
 const hobbyUrl = 'https://denkoldehane.dk/CA2/api/person/hobby/';
 
@@ -45,22 +42,20 @@ const options = makeOptions("GET");
 fetch(finalHobbyUrl, options)
 .then(res=>fetchWithErrorCheck(res))
 .then(data => {
-    console.log(data);
-    showPersons(data);
+    showPersonsByHobby(data);
 });
 }
 
-function showPersons(data) {
+function showPersonsByHobby(data) {
     var table = document.getElementById("hobbyTable");
     table.innerHTML = "";
     var tr = "";
 data.forEach(x => {
-    tr = '<tr>' + '<td>' + x.fName + '</td>' + '<td>' + x.lName + '</td>' + '<td>' + x.street + '</td>' + '<td>' + x.zip + '</td>' + '</tr>';
+    tr += '<tr>' + '<td>' + x.fName + '</td>' + '<td>' + x.lName + '</td>' + '<td>' + x.street + '</td>' + '<td>' + x.zip + '</td>' + '</tr>';
 });
     table.innerHTML = tr;
     console.log(tr);
 };
-
 
 
 function makeOptions(method) {
