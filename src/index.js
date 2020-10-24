@@ -57,7 +57,7 @@ data.forEach(x => {
     console.log(tr);
 };
 
-const addUser = async () => {
+function addUser() {
 
     const data = {email: document.getElementById('emailInput').value, fName: document.getElementById('fNameInput').value,
         lName: document.getElementById('lNameInput').value, street: document.getElementById('adrInput').value, 
@@ -76,6 +76,7 @@ const addUser = async () => {
     document.getElementById('hobbyInput').value = "";
     document.getElementById('phoneInput').value = "";
     document.getElementById('phoneTypeInput').value = "";
+    
 };
 
 
