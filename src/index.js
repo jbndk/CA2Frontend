@@ -58,14 +58,15 @@ data.forEach(x => {
 };
 
 const addUser = async () => {
-    //modal.style.display = "block";
+
     const data = {email: document.getElementById('emailInput').value, fName: document.getElementById('fNameInput').value,
         lName: document.getElementById('lNameInput').value, street: document.getElementById('adrInput').value, 
         additInfo: document.getElementById('additAdrInput').value,
         zip: document.getElementById('zipInput').value, hobbyName: document.getElementById('hobbyInput').value,
         phNumber: document.getElementById('phoneInput').value, descrip: document.getElementById('phoneTypeInput').value};
     const options = makeOptions("POST", data);
-    fetch(url, options);
+    let addUrl = 'https://denkoldehane.dk/CA2/api/person';
+    fetch(addUrl, options);
     document.getElementById('emailInput').value = "";
     document.getElementById('fNameInput').value = "";
     document.getElementById('lNameInput').value = "";
