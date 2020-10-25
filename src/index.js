@@ -98,6 +98,15 @@ addusr.onclick = function () {
 .then(res=>fetchWithErrorCheck(res))
 .then(data => {
     showAddedPerson(data);
+    document.getElementById('emailInput').value = '';
+    document.getElementById('fNameInput').value = '';
+    document.getElementById('lNameInput').value = '';
+    document.getElementById('adrInput').value = '';
+    document.getElementById('additAdrInput').value = '';
+    document.getElementById('zipInput').value = '';
+    document.getElementById('hobbyInput').value = '';
+    document.getElementById('phoneInput').value = '';
+    document.getElementById('phoneTypeInput').value = '';
 });
 
 }
