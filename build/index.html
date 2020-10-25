@@ -6,24 +6,195 @@
   </head>
 
   <body>
-    <div class="main">
-     
-      <div id="1">
-        <table>
-          <thead><tr><th>ID</th><th>NAME</th><th>AGE</th><th>GENDER</th><th>EMAIL</th></tr></thead>
-          <tbody id="tb"></tbody>
-        </table>
+
+    <div class="accordion" id="accordionExample">
+
+      <div class="card">
+        <div class="card-header">
+          <h5 class="mb-0">
+              Find person by phone
+          </h5>
+        </div>
+        <div class="card-body">
+            <div class="col-3">
+          <form>
+              <div class="form-group">
+                <label for="phoneInput">Please enter a phone number:</label>
+                <input type="text" class="form-control" id="phoneInputField" placeholder="Phone number here">
+                <small id="phoneHelp" class="form-text text-muted">Only numbers are allowed - please do not include country code.</small>
+              </div>
+            </div>
+        
+              <div id="getPersonByPhone">
+                <table class="table">
+                  <thead><tr><th>First name</th><th>Last name</th><th>Street</th><th>Zip code</th></tr></thead>
+                  <tbody id="phoneTable"></tbody>
+                </table>
+              </div>
+            </div>          
+          </div>
+        </div>
       </div>
-      <div id="2">
-      <input type="text" id="inpId"><button id="btnId">Get user by id</button><div id="divId"></div>
+
+
+      <div class="card">
+        <div class="card-header">
+          <h5 class="mb-0">
+              Find persons with a hobby
+          </h5>
+        </div>
+        <div class="card-body">
+          <div class="col-3">
+          <form>
+            <div class="form-group">
+              <label for="hobbyInput">Please enter a hobby:</label>
+              <input type="text" class="form-control" id="hobbyInputField" placeholder="Hobby here">
+            </div>
+            </div>
+      
+            <div id="getPersonsByHobby">
+              <table class="table">
+                <thead><tr><th>First name</th><th>Last name</th><th>Street</th><th>Zip code</th></tr></thead>
+                <tbody id="hobbyTable"></tbody>
+              </table>
+            </div>
+          </div>
       </div>
-      <div id="3">
-       
+
+
+           <div class="card">
+        <div class="card-header">
+          <h5 class="mb-0">
+              Add a person
+          </h5>
+        </div>
+        <div class="card-body">
+          <div class="col-2">
+          <form>
+            <div class="form-group">
+              <label for="phoneInput">Please enter email:</label>
+              <input type="email" class="form-control" id="emailInput" placeholder="Email here">
+              <small id="emailHelpToAdd" class="form-text text-muted">Only email type allowed.</small>
+            </div>
+            <div id="email">
       </div>
-      <!-- <div id="4">
-        Solution exercise 4 here
-      </div> -->
+      <form>
+        <div class="form-group">
+          <label for="firstNameInput">Please enter first name:</label>
+          <input type="text" class="form-control" id="fNameInput" placeholder="First name here">
+          <small id="fNameHelpToAdd" class="form-text text-muted">Only text allowed.</small>
+        </div>
+        <div id="f_name">
+  </div>
+  <form>
+    <div class="form-group">
+      <label for="lastNameInput">Please enter last name:</label>
+      <input type="text" class="form-control" id="lNameInput" placeholder="Last name here">
+      <small id="lNameHelpToAdd" class="form-text text-muted">Only text allowed.</small>
     </div>
+    <div id="l_name">
+</div>
+<form>
+  <div class="form-group">
+    <label for="addressNameInput">Please enter address:</label>
+    <input type="text" class="form-control" id="adrInput" placeholder="address here">
+    <small id="addressHelpToAdd" class="form-text text-muted">Text and numbers allowed.</small>
+  </div>
+  <div id="address">
+</div>
+<form>
+  <div class="form-group">
+    <label for="additAdrInput">Please enter additional address info:</label>
+    <input type="text" class="form-control" id="additAdrInput" placeholder="additional address info here">
+    <small id="additAdrHelpToAdd" class="form-text text-muted">Text and numbers allowed.</small>
+  </div>
+  <div id="addit_address">
+</div>
+<form>
+  <div class="form-group">
+    <label for="zipInput">Please enter your ZIP code, 4 digits:</label>
+    <input type="text" class="form-control" id="zipInput" placeholder="ZIP code here">
+    <small id="zipHelpToAdd" class="form-text text-muted">4 digits</small>
+  </div>
+  <div id="zip_add">
+</div>
+<form>
+  <div class="form-group">
+    <label for="hobbyNameInput">Please enter your hobby:</label>
+    <input type="text" class="form-control" id="hobbyInput" placeholder="Hobby name here">
+    <small id="hobbyHelpToAdd" class="form-text text-muted">Text only</small>
+  </div>
+  <div id="hobby_add">
+</div>
+<form>
+  <div class="form-group">
+    <label for="phoneInputAdd">Please enter your phone no:</label>
+    <input type="number" class="form-control" id="phoneInput" placeholder="Telno here">
+    <small id="phoneNoHelpToAdd" class="form-text text-muted">Text only</small>
+  </div>
+  <div id="phoneNo_add">
+</div>
+<form>
+  <div class="form-group">
+    <label for="phoneTypeInput">Please enter type of phone no:</label>
+    <input type="text" class="form-control" id="phoneTypeInput" placeholder="Type here">
+    <small id="phonetypeHelpToAdd" class="form-text text-muted">Text only</small>
+  </div>
+  <div id="phoneType_add">
+</div>
+<button type="button" id="addusr">Add user</button>
+    </div>
+    <br>
+    <div id="addedPerson">
+      <table class="table">
+        <thead><tr><th>Email</th><th>First name</th><th>Last name</th></tr></thead>
+        <tbody id="personTable"></tbody>
+      </table>
+    </div>
+  </div>
+
+
+
+    <div class="card">
+      <div class="card-header">
+        <h5 class="mb-0">
+            Edit a person
+        </h5>
+      </div>
+        <div class="card-body">
+            Method here
+        </div>
+    </div>
+  </div>
+
+
+  <div class="card">
+    <div class="card-header">
+      <h5 class="mb-0">
+          REST API description
+      </h5>
+    </div>
+      <div class="card-body">
+        <div class="col-8">
+        <table class="table"> <tr> <th>Method</th> <th>URL</th> <th>Request Body (JSON)</th> <th>Response (JSON)</th> <th>Error (e)</th> </tr> <tr> <td>GET</td> <td>/api/person/hobby/{hobbyName}</td> <td></td> <td>[person, person, ...] (2)</td> <td>(e1)</td> </tr> <tr> <td>GET</td> <td>api/person/phone/{phoneNumber}</td> <td></td> <td>person (2)</td> <td>(e1)</td> </tr> <tr> <td>POST</td> <td>/api/person</td> <td>(1) without id</td> <td></td> <td>(e2)</td> </tr> <tr> <td>PUT</td> <td>/api/person</td> <td>person (1)</td> <td></td> <td>(e1)</td> </tr> </table><br>
+        <h6>Request Body and Response Formats</h6><br>(1) Person format<br>{<br>"id": int,<br>"email": String,<br>"fName": String,<br>"lName":String,<br>"street": String,<br>"additInfo": String,<br>"zip": int<br>"hobbyName": String,<br>"phNumber": String,<br>"descrip": String<br>}<br><br>(2) Person format<br>{<br>"fName": String,<br>"lName": String,<br>"street": String,<br>"zip": int<br>}
+        <br><br><h6>Errors</h6><ul><li>(e1):{ status : 404, "msg": "No content found for this request" }</li><li>(e2) :{ status : 400, "msg": "Field ‘xxx’ is required" } (for example, no name provided)</li></ul>      </div>
+        </div>> 
+      </div>
+</div>
+
+
+<div class="card">
+  <div class="card-header">
+    <h5 class="mb-0">
+        SCRUM overview
+    </h5>
+  </div>
+    <div class="card-body">
+      <img src="scrum.png" width="1000" height="600">
+    </div>
+</div>
+
     <script src="bundle.js"></script>
   </body>
 </html>
