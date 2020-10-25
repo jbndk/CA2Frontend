@@ -61,7 +61,7 @@ data.forEach(x => {
 
 addusr.onclick = function () {
 
-    let url2 = 'http://localhost:8080/ca2test/api/person';
+    let url2 = 'https://denkoldehane.dk/CA2/api/person';
 
     let email = document.getElementById('emailInput').value;
     let fName = document.getElementById('fNameInput').value;
