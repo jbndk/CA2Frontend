@@ -56,9 +56,15 @@ data.forEach(x => {
     table.innerHTML = tr;
     console.log(tr);
 };
+
+
+
 document.getElementById("addusr").addEventListener("click", addUser);
 
 function addUser() {
+
+	let url2 = 'https://denkoldehane.dk/CA2/api/person';
+
     let email = document.getElementById('emailInput').value;
     let fName = document.getElementById('fNameInput').value;
     let lName = document.getElementById('lNameInput').value;
