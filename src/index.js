@@ -56,39 +56,67 @@ data.forEach(x => {
     table.innerHTML = tr;
     console.log(tr);
 };
+document.getElementById("addusr").addEventListener("click", addUser);
 
 function addUser() {
+    let email = document.getElementById('emailInput').value;
+    let fName = document.getElementById('fNameInput').value;
+    let lName = document.getElementById('lNameInput').value;
+    let street = document.getElementById('adrInput').value;
+    let additInfo = document.getElementById('additAdrInput').value;
+    let zip = document.getElementById('zipInput').value;
+    let hobbyName = document.getElementById('hobbyInput').value;
+    let phNumber = document.getElementById('phoneInput').value;
+    let descrip = document.getElementById('phoneTypeInput').value;
 
+    /*
     const data = {email: document.getElementById('emailInput').value, fName: document.getElementById('fNameInput').value,
-        lName: document.getElementById('lNameInput').value, street: document.getElementById('adrInput').value, 
+        lName: document.getElementById('lNameInput').value, street: document.getElementById('adrInput').value,
         additInfo: document.getElementById('additAdrInput').value,
-        zip: document.getElementById('zipInput').value, hobbyName: document.getElementById('hobbyInput').value,
-        phNumber: document.getElementById('phoneInput').value, descrip: document.getElementById('phoneTypeInput').value};
-    const options = makeOptions("POST", data);
-    let addUrl = 'https://denkoldehane.dk/CA2/api/person';
-    fetch(addUrl, options);
-    document.getElementById('emailInput').value = "";
-    document.getElementById('fNameInput').value = "";
-    document.getElementById('lNameInput').value = "";
-    document.getElementById('adrInput').value = "";
-    document.getElementById('additAdrInput').value = "";
-    document.getElementById('zipInput').value = "";
-    document.getElementById('hobbyInput').value = "";
-    document.getElementById('phoneInput').value = "";
-    document.getElementById('phoneTypeInput').value = "";
-    
+         zip: document.getElementById('zipInput').value, hobbyName: document.getElementById('hobbyInput').value,
+         phnumber: document.getElementById('phoneInput').value,
+        descrip: document.getElementById('phoneTypeInput').value};
+    const options = makeOptions("POST", data)
+    */
+        const options = {
+            method: "POST",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                email,
+                fName,
+                lName,
+                street,
+                additInfo,
+                zip,
+                hobbyName,
+                phNumber,
+                descrip
+            })
+        }
+        console.log(options);
+
+    //const options = makeOptions("POST", data);
+    fetch(url2, options);
+    //document.getElementById('email').value = "";
+    //document.getElementById('fName').value = "";
+    //document.getElementById('lName').value = "";
+    //document.getElementById('street').value = "";
+    //document.getElementById('zip').value = "";
+    //document.getElementById('hobbyName').value = "";
+    //document.getElementById('phNumber').value = "";
 };
 
-
-document.getElementById('addUser').addEventListener("click", addUser);
 
 
 function makeOptions(method) {
     var opts = {
         method: method,
         headers: {
-            "Content-type": "application/json",
-            "Accept": "application/json"
+            "Content-type": "text/plain",
+            
         }
     }
     return opts;
