@@ -62,7 +62,7 @@
       </div>
 
 
-      <div class="card">
+           <div class="card">
         <div class="card-header">
           <h5 class="mb-0">
               Add a person
@@ -128,7 +128,7 @@
 </div>
 <form>
   <div class="form-group">
-    <label for="phoneInput">Please enter your phone no:</label>
+    <label for="phoneInputAdd">Please enter your phone no:</label>
     <input type="number" class="form-control" id="phoneInput" placeholder="Telno here">
     <small id="phoneNoHelpToAdd" class="form-text text-muted">Text only</small>
   </div>
@@ -144,8 +144,14 @@
 </div>
 <button type="button" id="addusr">Add user</button>
     </div>
+    <br>
+    <div id="addedPerson">
+      <table class="table">
+        <thead><tr><th>Email</th><th>First name</th><th>Last name</th></tr></thead>
+        <tbody id="personTable"></tbody>
+      </table>
+    </div>
   </div>
-
 
 
 

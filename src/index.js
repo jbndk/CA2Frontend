@@ -59,11 +59,9 @@ data.forEach(x => {
 
 
 
-document.getElementById("addusr").addEventListener("click", addUser);
+addusr.onclick = function () {
 
-function addUser() {
-
-	let url2 = 'https://denkoldehane.dk/CA2/api/person';
+    let url2 = 'http://localhost:8080/ca2test/api/person';
 
     let email = document.getElementById('emailInput').value;
     let fName = document.getElementById('fNameInput').value;
@@ -75,15 +73,6 @@ function addUser() {
     let phNumber = document.getElementById('phoneInput').value;
     let descrip = document.getElementById('phoneTypeInput').value;
 
-    /*
-    const data = {email: document.getElementById('emailInput').value, fName: document.getElementById('fNameInput').value,
-        lName: document.getElementById('lNameInput').value, street: document.getElementById('adrInput').value,
-        additInfo: document.getElementById('additAdrInput').value,
-         zip: document.getElementById('zipInput').value, hobbyName: document.getElementById('hobbyInput').value,
-         phnumber: document.getElementById('phoneInput').value,
-        descrip: document.getElementById('phoneTypeInput').value};
-    const options = makeOptions("POST", data)
-    */
         const options = {
             method: "POST",
             headers: {
@@ -104,15 +93,21 @@ function addUser() {
         }
         console.log(options);
 
-    //const options = makeOptions("POST", data);
-    fetch(url2, options);
-    //document.getElementById('email').value = "";
-    //document.getElementById('fName').value = "";
-    //document.getElementById('lName').value = "";
-    //document.getElementById('street').value = "";
-    //document.getElementById('zip').value = "";
-    //document.getElementById('hobbyName').value = "";
-    //document.getElementById('phNumber').value = "";
+
+    fetch(url2, options)
+.then(res=>fetchWithErrorCheck(res))
+.then(data => {
+    showAddedPerson(data);
+});
+
+}
+
+function showAddedPerson(data) {
+    var table = document.getElementById("personTable");
+    table.innerHTML = "";
+    var tr = "";
+    tr = '<tr>' + '<td>' + data.email + '</td>' + '<td>' + data.fName + '</td>' + '<td>' + data.lName + '</td>' + '</tr>';
+    table.innerHTML = tr;
 };
 
 
